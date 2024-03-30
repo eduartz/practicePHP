@@ -9,7 +9,6 @@ class App {
         self::$posX = $x;
         self::$posY = $y;
     }
-
     public static function model00(){
         if(!self::validarParametros()){
             return "Algo salio mal";
@@ -182,7 +181,6 @@ class App {
 
         return $int;
     }
-
     public static function validarParametros (){
 
         if(self::verificarParametro(self::$posX) === null || self::verificarParametro(self::$posY) === null){
@@ -191,7 +189,6 @@ class App {
 
         return true;
     }
-
 }
 
 $app = new App(1,5);

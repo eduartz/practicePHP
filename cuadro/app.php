@@ -1,16 +1,5 @@
 <?php
-/**
- * Creamos cuadros segun los modelos
- * 
- * MODELS 1:
- * (5,3)    (5,1)   (1,1)   (1,5)
- * o---o    o---o   o       o
- * |   |                    |
- * o---o                    |
- *                          |
- *                          o
- * 
- */
+
 class App {
 
     public static $posX;
@@ -21,12 +10,40 @@ class App {
         self::$posY = self::verificarParametro($y);
     }
 
-    public static function modelA(){
+    public static function model00(){
         if(!self::validarParametros()){
             return "Algo salio mal";
         }
 
-        return self::$posX . " - " .self::$posY;
+        $resultado = "";
+
+        for($b= 1; $b <= self::$posY; $b++){
+            
+            for($a= 1; $a <= self::$posX; $a++){
+    
+                if($b == 1  || $b == self::$posY){
+                    $resultado .= $a == 1 || $a == self::$posX ? "o" : "-";
+                }else{
+                    $resultado .= $a == 1 || $a == self::$posX ? "|" : " ";
+                }
+    
+            }
+
+            $resultado .= self::$posY == 1 || self::$posY == $b ? "" : "\n";
+        }
+
+
+        return $resultado;
+    }
+
+    public static function model01(){
+        if(!self::validarParametros()){
+            return "Algo salio mal";
+        }
+
+        $resultado = "";
+
+        return $resultado;
     }
 
     public static function verificarParametro ($int): ?int {
@@ -51,6 +68,6 @@ class App {
 
 }
 
-$app = new App(5,1);
+$app = new App(1,5);
 
-echo App::modelA();
+echo App::model00();
